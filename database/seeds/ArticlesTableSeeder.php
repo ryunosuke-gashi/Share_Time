@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Article;
 class ArticlesTableSeeder extends Seeder
 {
     /**
@@ -11,11 +11,15 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles')->insert([
-            'user_id'=> 1,
-            'food' => '学会',
-            'meet_place' => '講堂前',
-            'time' => '4限終わり'
-        ]);
+        for ($i = 1; $i <= 10; $i++) {
+            Article::create([
+                'user_id'    => $i,
+                'food'       => 'ピザ' .$i,
+                'meet_place'       => '講堂前' .$i,
+                'time'       => '今' .$i,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }  
     }
 }

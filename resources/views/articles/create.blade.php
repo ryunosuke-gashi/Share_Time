@@ -1,35 +1,47 @@
-@extends('layout')
- 
+@extends('layouts.app')
+
 @section('content')
-    <h1>投稿する</h1>
- 
-    <hr/>
- 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Create</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('articles.store') }}">
+                        @csrf
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-12 p-3 w-100 d-flex">
+                                <img src="{{ asset('storage/profile_image/' .$user->profile_image) }}" class="rounded-circle" width="50" height="50">
+                                <div class="ml-2 d-flex flex-column">
+                                    <p class="mb-0">{{ $user->name }}</p>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="form-control @error('text') is-invalid @enderror" name="text" required autocomplete="text" rows="4">{{ old('text') }}</textarea>
+
+                                @error('text')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-12 text-right">
+                                <p class="mb-4 text-danger">140文字以内</p>
+                                <button type="submit" class="btn btn-primary">
+                                    ツイートする
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    @endif
-    
-    {!! Form::open(['route' => 'articles.store']) !!}
-        <div class="form-group">
-            {!! Form::label('title', '何食べる？') !!}
-            {!! Form::text('title', null, ['class' => 'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('body', 'どこで会う？') !!}
-            {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('published_at', 'いつ？') !!}
-            {!! Form::input('date', 'time', date('Y-m-d'), ['class' => 'form-control']) !!}
-        </div>    
-        <div class="form-group">
-            {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
-        </div>
-    {!! Form::close() !!}
+    </div>
+</div>
 @endsection

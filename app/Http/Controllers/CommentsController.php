@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Article;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\ArticleRequest;
-use Illuminate\Support\Facades\Auth;
-use App\Comment;
-class ArticlesController extends Controller
+
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +13,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $user=auth()->user();
-        $articles = Article::all();
- 
-        return view('articles.index', compact('articles'));
-    
+        //
     }
 
     /**
@@ -33,10 +23,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $user = auth()->user();
-        return view('articles.create', [
-            'user' => $user 
-            ]); 
+        //
     }
 
     /**
@@ -45,18 +32,14 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArticleRequest $request)
+    public function store(Request $request, Comment $comment)
     {
         $user = auth()->user();
         $data = $request->all();
         $validator = Validator::make($data, [
-            'food' => ['required', 'string', 'max:140']
+            'article_id' =>['required', 'integer'],
+            'article'     => ['required', 'string', 'max:140']
         ]);
-
-        $validator->validate();
-        $article->articleStore($user->id, $data);
-
-        return redirect('articles');
     }
 
     /**
@@ -65,18 +48,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article,Comment $comment)
+    public function show($id)
     {
- 
-        $user = auth()->user();
-        $article = $article->getArticle($article->id);
-        $comments = $comment->getComments($article->id);
-        
-        return view('article.show', [
-            'user'     => $user,
-            'article' => $article,
-            'comments' => $comments
-        ]);
+        //
     }
 
     /**
@@ -85,7 +59,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
         //
     }
@@ -108,10 +82,8 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        $article->delete();
-        return redirect()->route('articles.index');
-
+        //
     }
 }
