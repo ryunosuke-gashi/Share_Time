@@ -17,15 +17,15 @@
     
     {!! Form::open(['route' => 'articles.store']) !!}
         <div class="form-group">
-            {!! Form::label('title', '何食べる？') !!}
-            {!! Form::text('title', null, ['class' => 'form-control']) !!}
+            {!! Form::label('food', '何食べる？') !!}
+            {!! Form::text('food', null, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('body', 'どこで会う？') !!}
-            {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+            {!! Form::label('meet_place', 'どこで会う？') !!}
+            {!! Form::textarea('meet_place', null, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('published_at', 'いつ？') !!}
+            {!! Form::label('time', 'いつ？') !!}
             {!! Form::input('date', 'time', date('Y-m-d'), ['class' => 'form-control']) !!}
         </div>    
         <div class="form-group">

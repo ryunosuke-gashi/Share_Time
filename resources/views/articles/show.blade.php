@@ -1,7 +1,7 @@
 @extends('layouts.app')
  
 @section('content')
-    <h1>{{ $article->title }}</h1>
+    <h1>{{ $article->food }}</h1>
  
     <hr/>
  
