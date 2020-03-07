@@ -1,8 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
  
 @section('content')
     <h1>Articles</h1>
-    <a href="articles" class="btn btn-primary float-right">新規作成</a>
+    <a href=" {{route('articles.create')}}" class="btn btn-primary float-right">新規作成</a>
     <hr/>
  
     @foreach($articles as $article)

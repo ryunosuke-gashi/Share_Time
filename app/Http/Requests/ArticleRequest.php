@@ -23,9 +23,10 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
+      
         return [
            
-                'food' => 'required',
+                'food' => 'required|min:3',
                 'meet_place' => 'required',
                 'time' => 'required|date',
         ];

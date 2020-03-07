@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\ArticleRequest;
 
 use App\Article;
-use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\Request;
+
+use App\Http\ControllersController;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class ArticlesController extends Controller
 {
@@ -30,7 +34,7 @@ class ArticlesController extends Controller
     public function create()
     {
        
-            return route('articles.create');
+            return view('articles.create');
     }
 
     /**
@@ -39,14 +43,14 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
        
         
         Article::create($request->validated());
         
        
-        return redirect('articles');
+        return redirect('articles.index');
     }
 
     /**

@@ -12,10 +12,20 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles')->insert([
-            'user_id'=> 1,
+            ['user_id'=> 1,
             'food' => '学会',
             'meet_place' => '講堂前',
-            'time' => '4限終わり'
+            'time' => '4限終わり',
+            
+        ],
+        
+           [
+            'user_id'=> 2,
+            'food' => 'ピザ',
+            'meet_place' => '体育館',
+            'time' => '4限終わり',
+            
+           ],
         ]);
     }
 }
