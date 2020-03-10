@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
             $table->text('food')->nullable();
             $table->text('meet_place')->nullable();
-            $table->string('meet_place_image')->nullable();
+            $table->string('place_image')->nullable();
             $table->text('time')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             

@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('articles', 'ArticlesController');
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('users', 'UsersController');
+    Route::resource('comments', 'CommentsController');
+    Route::resource('articles', 'ArticlesController');
+});
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

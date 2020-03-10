@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
-
+use JD\Cloudder\Facades\Cloudder;
 use App\Article;
-
+use App\User;
 use App\Http\ControllersController;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')
+            ->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +25,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::whereHas('user',function($query){
+            $query->where('univ_id', Auth::user()->univ_id);
+        })->get();
  
         return view('articles.index', compact('articles'));
     
@@ -33,7 +40,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-       
+      
             return view('articles.create');
     }
 
@@ -45,12 +52,34 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-       
+
+
+        $image=$request->file('place_image');
         
-        Article::create($request->validated());
+        if($request->file('place_image')->isValid()){
+ 
+         
+ 
         
+            Cloudder::upload($image,null);
+            $place_id=Cloudder::getPublicId();
+            $place_url=Cloudder::show($place_id, [
+             'width'     => 150,
+             'height'    => 150
+           ]);
        
-        return redirect('articles.index');
+        $article=Article::create([
+            'user_id' => auth()->user()->id,
+            'food' => $request->food,
+            'meet_place' => $request->meet_place,
+            'place_image' => $place_url,
+            'time' => $request->time,
+            'meet_place' => $request->meet_place,
+
+            ]);
+        }
+        
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -61,6 +90,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
+      
+        
         $article = Article::findOrFail($id);
  
         return view('articles.show', compact('article'));
@@ -97,6 +128,14 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $article = Article::where('user_id',Auth::user()->id)->where('id',$id)->first();
+       
+      if(!isset($article)){
+          return redirect('articles')->with('message', '他人の記事です');
+         
+      }else{
+      $article->delete();
+      return redirect('articles')->with('error', 'ok');
+      }
+}
 }

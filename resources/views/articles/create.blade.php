@@ -1,8 +1,9 @@
 @extends('layouts.app')
  
 @section('content')
+
     <h1>投稿する</h1>
- 
+    
     <hr/>
  
     @if ($errors->any())
@@ -15,19 +16,29 @@
         </div>
     @endif
     
-    {!! Form::open(['route' => 'articles.store']) !!}
+    {!! Form::open(['route' => 'articles.store','enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {!! Form::label('food', '何食べる？') !!}
             {!! Form::text('food', null, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('meet_place', 'どこで会う？') !!}
-            {!! Form::textarea('meet_place', null, ['class' => 'form-control']) !!}
+            {!! Form::text('meet_place', null, ['class' => 'form-control']) !!}
         </div>
+
+        <div class="form-group">
+        {!! Form::label('place_image', '画像投稿', ['class' => 'control-label']) !!}
+        {!! Form::file('place_image') !!}
+    </div>
         <div class="form-group">
             {!! Form::label('time', 'いつ？') !!}
-            {!! Form::input('date', 'time', date('Y-m-d'), ['class' => 'form-control']) !!}
-        </div>    
+            {!! Form::text('time', null, ['class' => 'form-control']) !!}
+        </div>   
+       
+        <div class="form-group">
+            {!! Form::label('created_at', 'Publish On:') !!}
+            {!! Form::input('date', 'created_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+        </div> 
         <div class="form-group">
             {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
         </div>
