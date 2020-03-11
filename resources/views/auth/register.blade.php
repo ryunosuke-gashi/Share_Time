@@ -96,13 +96,13 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group row mx-auto">
+                            
+                            <button type="submit" class="btn btn-success mx-auto">
+                                {{ __('Register') }}
+                            </button>
                         </form>
-                    </div>
-                    <div class="form-group row mx-auto">
-
-                        <button type="submit" class="btn btn-success mx-auto">
-                            {{ __('Register') }}
-                        </button>
 
                     </div>
                 </div>

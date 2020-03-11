@@ -8,6 +8,9 @@
 
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/article.index.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/article.create.css') }}" rel="stylesheet">
 
     <script src="/js/app.js" defer></script>
 </head>

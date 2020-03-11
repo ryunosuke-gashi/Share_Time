@@ -13,7 +13,7 @@
         </ul>
     @endif
 
-    {!! Form::model($user, ['method' => 'PATCH', 'url' => ['users', $user->id],'enctype' => 'multipart/form-data']) !!}
+    {!! Form::model($user, ['method' => 'PATCH', 'route' => ['users.show', $user->id],'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {!! Form::label('name', 'Name:') !!}
         {!! Form::text('name', null, ['class' => 'form-control']) !!}

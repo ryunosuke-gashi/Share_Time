@@ -18,8 +18,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
-        $articles = Article::where('user_id',Auth::user()->id)->get();
+        // $user=Auth::user();
+        // $articles = Article::where('user_id',Auth::user()->id)->get();
         
 
             
@@ -27,7 +27,7 @@ class UsersController extends Controller
  
         
 
-        return view('users.index',compact('user','articles'));
+        // return view('users.index',compact('user','articles'));
     }
 
     /**
@@ -59,8 +59,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+       
         $user = User::findOrFail($id);
-        $articles = Article::where('user_id',Auth::user()->id)->get();
+        $articles = Article::where('user_id',$id)->get();
 
         return view('users.show', compact('user','articles'));
     }
@@ -110,7 +111,7 @@ class UsersController extends Controller
        $user->update($request->validated());
        
        }
-        return redirect()->route('users.index');
+        return redirect()->route('users.show',compact('user'));
     }
 
     /**
