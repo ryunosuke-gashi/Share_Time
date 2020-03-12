@@ -29,7 +29,7 @@ class ArticleRequest extends FormRequest
                 'food' => 'required',
                 'meet_place' => 'required',
                 'time' => 'required',
-                'place_image'=>'required'
+                
         ];
     }
 }

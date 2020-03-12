@@ -1,0 +1,34 @@
+.welcome{
+  
+  background-image: url('/images/toa-heftiba-6bKpHAun4d8-unsplash.jpg');
+  background-size:100%;
+  height:100%;
+  margin: 0;
+  position: relative;
+}
+.welcome::before{
+  background-color: rgba(44, 32, 32, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.content {
+  text-align: center;
+  top: 50%; 
+  left: 50%;  
+  transform: translateY(-50%) translateX(-50%); 
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+}
+
+.title {
+  font-size: 84px;
+  color:white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  text-align: center;
+}
+

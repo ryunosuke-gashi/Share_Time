@@ -2,11 +2,11 @@
   
   background-image: url(/images/nathan-dumlao-ewGMqs2tmJI-unsplash.jpg);
   background-size:100%;
-  height:600px;
+  height: 700px;
   position: relative;
 }
 .login::before{
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(44, 32, 32, 0.5);
 	position: absolute;
 	top: 0;
 	right: 0;

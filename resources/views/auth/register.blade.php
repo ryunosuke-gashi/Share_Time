@@ -3,7 +3,7 @@
 @section('content')
 
 <nav class="navbar navbar-light bg-light">
-    <span class="nav-title text-success">Share Time</span>
+    <h3 class="nav-title text-success my-auto">Share Time</h3>
 </nav>
 
 <div class="register">
@@ -97,9 +97,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row mx-auto">
+                        <div class="form-group row mx-auto py-2">
                             
-                            <button type="submit" class="btn btn-success mx-auto">
+                            <button type="submit" class="btn btn-success">
                                 {{ __('Register') }}
                             </button>
                         </form>

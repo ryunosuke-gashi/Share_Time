@@ -43,8 +43,9 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+
        $article = Article::find($request->article_id);
-       
+      
         $this->validate($request,['comment' => 'required|max:191',
         ]);
        

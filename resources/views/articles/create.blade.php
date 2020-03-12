@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <nav class="navbar navbar-light bg-success">
-    <span class="nav-title text-light">share time</span>
+    <h3 class="nav-title text-light my-auto">share time</h3>
 </nav>
 
 

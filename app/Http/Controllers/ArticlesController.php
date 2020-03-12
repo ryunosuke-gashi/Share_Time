@@ -29,6 +29,7 @@ class ArticlesController extends Controller
         $articles = Article::whereHas('user',function($query){
             $query->where('univ_id', Auth::user()->univ_id);
         })->get();
+        $articles = Article::latest('created_at')->get();
  
         return view('articles.index', compact('articles', 'user'));
     
@@ -56,12 +57,9 @@ class ArticlesController extends Controller
 
         
         $image=$request->file('place_image');
-        
-        if($request->file('place_image')->isValid()){
+
+        if(isset($image)){
  
-        
- 
-        
             Cloudder::upload($image,null);
             $place_id=Cloudder::getPublicId();
             $place_url=Cloudder::show($place_id, [
@@ -78,9 +76,17 @@ class ArticlesController extends Controller
             'meet_place' => $request->meet_place,
 
             ]);
-        
+            return redirect()->route('articles.index');
           
-        }
+        }else
+        $article=Article::create([
+            'user_id'=>auth()->user()->id,
+            'food' => $request->food,
+            'meet_place' => $request->meet_place,
+            'time' => $request->time,
+            'meet_place' => $request->meet_place,
+
+            ]);
         return redirect()->route('articles.index');
     }
 
