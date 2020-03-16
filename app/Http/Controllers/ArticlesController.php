@@ -26,10 +26,10 @@ class ArticlesController extends Controller
     public function index()
     {
         $user=auth()->user();
-        $articles = Article::whereHas('user',function($query){
+        $articles = Article::latest('created_at')->whereHas('user',function($query){
             $query->where('univ_id', Auth::user()->univ_id);
         })->get();
-        $articles = Article::latest('created_at')->get();
+       
  
         return view('articles.index', compact('articles', 'user'));
     
@@ -61,10 +61,11 @@ class ArticlesController extends Controller
         if(isset($image)){
  
             Cloudder::upload($image,null);
+            list($width, $height) = getimagesize($image);
             $place_id=Cloudder::getPublicId();
             $place_url=Cloudder::show($place_id, [
-             'width'     => 150,
-             'height'    => 150
+             'width'     => $width,
+             'height'    => $height
            ]);
        
         $article=Article::create([

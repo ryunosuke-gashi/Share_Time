@@ -18,14 +18,6 @@ class ArticlesTableSeeder extends Seeder
             'time' => '4限終わり',
             
         ],
-        
-           [
-            'user_id'=> 2,
-            'food' => 'ピザ',
-            'meet_place' => '体育館',
-            'time' => '4限終わり',
-            
-           ],
         ]);
     }
 }

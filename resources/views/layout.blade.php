@@ -15,8 +15,11 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/article.index.css') }}" rel="stylesheet">
     <link href="{{ asset('css/article.create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/user.show.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/user.edit.css') }}" rel="stylesheet">
 
     <script src="/js/app.js" defer></script>
+    <script src="/js/articles.show.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 </head>

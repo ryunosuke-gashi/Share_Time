@@ -1,9 +1,11 @@
 .dashboard{
   
   background-image: url(/images/filip-bunkens-MfA21vhkVLg-unsplash.jpg);
-  background-size:100%;
+  background-size:cover;
   height:700px;
+  width:100%;
   position: relative;
+ 
 }
 .dashboard::before{
 	background-color:rgba(44, 32, 32, 0.5);

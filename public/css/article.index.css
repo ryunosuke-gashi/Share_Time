@@ -1,10 +1,33 @@
 .lunch{
-  color: #38c172;
-  padding-top: 10px;
+color: #38c172;
+position:fixed;
+right:40px;
+bottom:40px;
+transition:1s;
+opacity:1.0;
   
 }
+
 .comment{
   color: #38c172;
  
   
+}
+.delete{
+  color: #38c172;
+}
+.article{
+
+margin-top: 50px;
+}
+.navbar{
+  position:relative;
+  position: fixed;
+
+}
+.nav-title{
+  position:absolute;
+  top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
 }

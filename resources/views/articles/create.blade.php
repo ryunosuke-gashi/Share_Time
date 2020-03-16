@@ -1,7 +1,8 @@
 @extends('layout')
 @section('content')
-<nav class="navbar navbar-light bg-success">
-    <h3 class="nav-title text-light my-auto">share time</h3>
+<nav class="navbar navbar-light bg-light fixed-top">
+<a  class="text-success"href="{{ route('articles.index') }}"><i class="fas fa-arrow-left"></i></a>
+<h3 class="nav-title text-success my-auto mx-auto"> <img src="/images/icon.png" width="30",height="30">share time</h3>
 </nav>
 
 
@@ -19,10 +20,14 @@
     <div class="container article-create-card">
         <div class="row justify-content-center">
             <div class="col-mx-auto">
-                <div class="card" style="width: 30rem;">
+                <div class="card" style="width: 25rem;">
                     <div class="card-body justify-content-center">
                         <form method="post" action="{{ route('articles.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
                             @CSRF
+                            <div class="card-title text-center">
+                                <h5>暇人を募集しよう</h5>
+                            </div>
+                            <hr/>
                             <div class="form-group">
                                 <label for="time">いつ暇？</label>
                                 <input class="form-control" name="time" type="text" id="time">

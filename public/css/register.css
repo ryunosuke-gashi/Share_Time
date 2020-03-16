@@ -1,7 +1,7 @@
 .register{
   
   background-image: url(/images/nathan-dumlao-ewGMqs2tmJI-unsplash.jpg);
-  background-size:100%;
+  background-size:cover;
   height:700px;
   position: relative;
 }

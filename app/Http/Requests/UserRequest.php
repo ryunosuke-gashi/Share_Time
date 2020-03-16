@@ -25,9 +25,9 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'introduction' => 'required',
             'profile_image' => 'required',
-            'introduction' => 'required',
+            
+            
            
            
             

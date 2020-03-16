@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Article;
+use App\Comment;
 class UsersController extends Controller
 {
     /**
@@ -59,11 +60,19 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-       
         $user = User::findOrFail($id);
-        $articles = Article::where('user_id',$id)->get();
-
-        return view('users.show', compact('user','articles'));
+        $articles = Article::latest('created_at')->where('user_id',$id)->get();
+        
+        $user->load('univ');
+        $tweets=Comment::latest('created_at')->where('user_id',auth()->user()->id)->get();
+        
+        $tweets->load('article.user');
+      
+       
+        
+       
+        
+        return view('users.show', compact('user','articles','tweets'));
     }
 
     /**
@@ -92,10 +101,11 @@ class UsersController extends Controller
         
 
         Cloudder::upload($image,null);
+        list($width, $height) = getimagesize($image);
             $profile_id=Cloudder::getPublicId();
             $profile_url=Cloudder::show($profile_id, [
-             'width'     => 150,
-             'height'    => 150
+             'width'     => $width,
+             'height'    => $height
            ]);
        
        

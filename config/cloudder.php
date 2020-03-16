@@ -21,8 +21,8 @@ return [
 
     'scaling'    => [
         'format' => 'png',
-        'width'  => 500,
-        'height' => 100,
+        'width'  => 150,
+        'height' => 150,
         'crop'   => 'fit',
         'effect' => null
     ],

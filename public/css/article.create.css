@@ -1,7 +1,7 @@
 .article-create{
   
   background-image: url(/images/nathan-dumlao-ewGMqs2tmJI-unsplash.jpg);
-  background-size:100%;
+  background-size:cover;
   height:700px;
   position: relative;
 }
@@ -23,4 +23,16 @@
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
+}
+.navbar{
+  position:relative;
+  position: fixed;
+  height: 56px;
+
+}
+.nav-title{
+  position:absolute;
+  top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
 }

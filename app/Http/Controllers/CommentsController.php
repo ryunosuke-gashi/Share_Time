@@ -49,19 +49,16 @@ class CommentsController extends Controller
         $this->validate($request,['comment' => 'required|max:191',
         ]);
        
+       
         $comment=Comment::create([
             'user_id' => auth()->user()->id,
             'article_id' => $request->article_id,
             'comment' => $request->comment,
             ]);
-
             $comment->load('user.univ');
+            
            
-           
-
-           
-           
-          return view('articles.show',compact('article'));
+                return redirect()->route('articles.show',compact('article'))->with('message', 'コメントしました。');
     }
 
     /**
