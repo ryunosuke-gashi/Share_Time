@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'introduction' => 'こんにちは',
         ],
         [
-            'univ_id' =>2,
+            'univ_id' =>11,
             'name' => "ryunosuke",
             'email' => 'ryunosuke@gmail.com',
             'password' => bcrypt('secret'),
