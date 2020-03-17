@@ -73,7 +73,7 @@
                         <input name="article_id" type="hidden" value="{{$article->id}}">
                         <label for="comment">コメントを入力してください</label>
                         <div class="text-center">
-                            <textarea name="comment" cols="50" rows="5" id="comment"></textarea>
+                            <textarea name="comment" cols="40" rows="5" id="comment"></textarea>
                             <input type="submit" value="コメントする" class="btn btn-success">
                         </div>
 

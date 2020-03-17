@@ -4,6 +4,7 @@
 
 
 <nav class="navbar navbar-light bg-light fixed-top">
+<a class="text-success" href="{{ url('/') }}"><i class="fas fa-arrow-left"></i></a>
 <h3 class="nav-title text-success my-auto mx-auto"> <img src="/images/icon.png" width="30",height="30">share time</h3>
 </nav>
 

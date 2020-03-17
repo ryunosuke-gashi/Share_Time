@@ -147,12 +147,14 @@ return [
     */
 
     'attributes' => [
-        'food' => '何を食べるか',
-        'meet_place' => '待ち合わせ場所',
         'time' => '集合時間',
-        'place_iamge' => '画像',
+        'meet_place' => '待ち合わせ場所',
+        'food' => '何を食べるか',
+        'profile iamge' => '画像',
         'password'=>'パスワード',
-        'email'=>'メールアドレス'
+        'email'=>'メールアドレス',
+        'name'=>'名前',
+
     ],
 
 ];
