@@ -16,13 +16,13 @@
     <div class="dashboard">
         <div class="content">
 
-            <container>
-            
-            <p class="text-center text-light">君はボッチ飯を回避できるかな？</p>
+           
+          
+            <p class="mx-auto text-light">君はボッチ飯を回避できる？</p>
                 <a href="{{ route('articles.index')}}" class="btn btn-md btn-outline-light rounded-pill w-75 py-2 my-2">始める</a>
-
                
-            </container>
+               
+            
 
 
         </div>
