@@ -54,7 +54,7 @@
             <label class="tab_item" for="all">投稿した記事</label>
 @else
             <input id="programming" type="radio" name="tab_item">
-            <label class="tab_item" for="programming">コメントされた記事</label>
+            <label class="tab_item" for="programming">あなたがコメントした記事</label>
             <input id="all" type="radio" name="tab_item" checked>
             <label class="tab_item" for="all">投稿した記事</label>
     @endif
@@ -103,7 +103,7 @@
                             height="50" src="{{ $tweet->article->user->profile_image }}"></a>
                    
                 @else
-                <a href="{{url('users',$tweet->article->user_id)}}">img class="rounded-circle mr-1" width="50"
+                <a href="{{url('users',$tweet->article->user_id)}}"><img class="rounded-circle mr-1" width="50"
                             height="50" src="{{ $tweet->article->user->profile_image }}"></a>
                 @endif
                     {{ $tweet->article->user->name }}

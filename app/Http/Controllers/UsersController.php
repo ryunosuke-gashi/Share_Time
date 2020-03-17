@@ -97,8 +97,8 @@ class UsersController extends Controller
     {
         $image=$request->file('profile_image');
         
-        if($request->file('profile_image')->isValid()){
         
+        if(isset($image)){
 
         Cloudder::upload($image,null);
         
@@ -120,9 +120,19 @@ class UsersController extends Controller
      
        $user->update($request->validated());
        
-       }
+       
         return redirect()->route('users.show',compact('user'));
-    }
+    }else
+    $user->name = $request->name;
+    $user->introduction=$request->introduction;
+    $user->update();
+
+    $user->update($request->validated());
+       
+       
+    return redirect()->route('users.show',compact('user'));
+
+}
 
     /**
      * Remove the specified resource from storage.
