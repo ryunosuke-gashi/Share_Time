@@ -39,4 +39,10 @@
         font-size: 35px;
 }
 
+    input:checked + .btn-login {
+       background-color: azure;
+        
+       
+    }
+
 } 

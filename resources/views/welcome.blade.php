@@ -12,13 +12,13 @@
             <container>
             
                 @auth
-                <a href="{{ route('articles.index') }}" class="btn btn-md btn-outline-light rounded-pill w-75 py-2 mt-2">Login</a>
+                <a href="{{ route('articles.index') }}" class="btn btn-login btn-md btn-outline-light rounded-pill w-75 py-2 mt-2">Login</a>
 
-                <a href="{{ route('articles.index') }}" class="btn btn-md btn-outline-light rounded-pill w-75 py-2 my-4">Register</a>
+                <a href="{{ route('articles.index') }}" class="btn btn-login btn-md btn-outline-light rounded-pill w-75 py-2 my-4">Register</a>
                 @else
-                <a href="{{ route('login') }}" class="btn btn-md btn-outline-light rounded-pill w-75 py-2 mt-2">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-login btn-md btn-outline-light rounded-pill w-75 py-2 mt-2">Login</a>
 
-                <a href="{{ route('register') }}" class="btn btn-md btn-outline-light rounded-pill w-75 py-2 my-4">Register</a>
+                <a href="{{ route('register') }}" class="btn btn-login btn-md btn-outline-light rounded-pill w-75 py-2 my-4">Register</a>
                 @endauth
 
             </container>
