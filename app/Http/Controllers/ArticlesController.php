@@ -61,11 +61,11 @@ class ArticlesController extends Controller
         if(isset($image)){
  
             Cloudder::upload($image,null);
-            list($width, $height) = getimagesize($image);
+           
             $place_id=Cloudder::getPublicId();
             $place_url=Cloudder::show($place_id, [
-             'width'     => $width,
-             'height'    => $height
+             'width'     => 700,
+             'height'    => 700
            ]);
        
         $article=Article::create([

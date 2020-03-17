@@ -101,11 +101,11 @@ class UsersController extends Controller
         
 
         Cloudder::upload($image,null);
-        list($width, $height) = getimagesize($image);
+        
             $profile_id=Cloudder::getPublicId();
             $profile_url=Cloudder::show($profile_id, [
-             'width'     => $width,
-             'height'    => $height
+             'width'     => 700,
+             'height'    => 700
            ]);
        
        
