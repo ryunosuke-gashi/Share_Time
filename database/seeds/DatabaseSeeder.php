@@ -13,9 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UnivsTableSeeder::class,
-            UsersTableSeeder::class,
-            ArticlesTableSeeder::class,
-            CommentsTableSeeder::class,
+            
         ]);
     }
 }

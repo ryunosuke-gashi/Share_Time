@@ -11,11 +11,7 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comments')->insert([
-            'comment' => '行きたい',
-            'user_id' =>1,
-            'article_id' =>1,
-        ]);
+     
  
     }
 }
