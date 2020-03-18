@@ -41,7 +41,7 @@
                                 <input class="form-control" name="meet_place" type="text" id="meet_place">
                             </div>
                             <div class="form-group">
-                                <label for="place_image" class="control-label">待ち合わせ場所を画像投稿しよう
+                                <label for="place_image" class="control-label">画像投稿しよう
                                 <input type="file" name="place_image">
                                 </label>
                             </div>

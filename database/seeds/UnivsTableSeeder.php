@@ -14,7 +14,6 @@ class UnivsTableSeeder extends Seeder
         DB::table('univs')->insert([
             ['univ_name' => 'お茶ノ水女子大学'],
             ['univ_name' => '電気通信大学'],
-            ['univ_name' => '東京医科歯科大学'],
             ['univ_name' => '東京外語大学'],
             ['univ_name' => '東京学芸大学'],
             ['univ_name' => '東京藝術大学'],
