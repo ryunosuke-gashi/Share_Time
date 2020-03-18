@@ -38,12 +38,12 @@
                     <p>何食べる？：{{ $article->food }}</p>
                 </div>
 
-                <a type="button text-left" data-toggle="modal" data-target="#commentModal"><i
+                <a type="text-left" data-toggle="modal" data-target="#commentModal"><i
                         class="comment far fa-comment-dots fa-2x mx-2"></i></a>
 
 
                 @if(Auth::user()->id === $article->user_id)
-                <a type="button" data-toggle="modal" data-target="#deleteModal"><i
+                <a data-toggle="modal" data-target="#deleteModal"><i
                         class="delete far fa-trash-alt fa-2x"></i><a>
 
                         @endif

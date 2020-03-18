@@ -127,8 +127,7 @@
                             height="50" src="{{ $tweet->article->user->profile_image }}"></a>
                    
                 @else
-                <a href="{{url('users',$tweet->article->user_id)}}"><img class="rounded-circle mr-1" width="50"
-                            height="50" src="{{ $tweet->article->user->profile_image }}"></a>
+                <a href="{{url('users',$tweet->article->user_id)}}"><img src="/images/Frame 3.png" class="rounded-circle mr-1" width="50",height="50"></a>
                 @endif
                     {{ $tweet->article->user->name }}
                 </div>
