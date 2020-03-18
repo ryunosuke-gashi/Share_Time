@@ -53,10 +53,34 @@
             <input id="all" type="radio" name="tab_item" checked>
             <label class="tab_item" for="all">投稿した記事</label>
 @else
-            <input id="programming" type="radio" name="tab_item">
-            <label class="tab_item" for="programming">あなたがコメントした記事</label>
-            <input id="all" type="radio" name="tab_item" checked>
-            <label class="tab_item" for="all">投稿した記事</label>
+
+@foreach($articles as $article)
+    
+
+    <div class="p-0">
+<div class="font-weight-bold">
+                 @if(isset($article->user->profile_image))
+                    <a href="{{url('users',$article->user_id)}}"><img class="rounded-circle mr-1" width="50" height="50"
+                            src="{{ $article->user->profile_image }}"></a>
+                @else
+                <a href="{{url('users',$article->user_id)}}"><img src="/images/Frame 3.png" class="rounded-circle mr-1" width="50",height="50"></a>
+                @endif
+                    {{ $article->user->name }}
+                </div>
+
+                <div class="pt-3">
+                    <img class="rounded" src="{{ $article->place_image }}" width="100%" ,height="100%">
+
+                    <a href="{{ url('articles', $article->id) }}"><i
+                            class=" comment far fa-comment-dots fa-2x mr-0 pt-3"></i></a>
+                    <hr />
+                    <p class="card-title">待ち合わせ場所：{{ $article->meet_place }}</p>
+                    <p class="card-title ">待ち合わせ時間：{{ $article->time }}</p>
+                    <p class="card-text pb-3">何食べる？：{{ $article->food }}</p>
+                </div>
+                <hr/>
+            </div>
+            @endforeach
     @endif
 
           
